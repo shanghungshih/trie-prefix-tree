@@ -27,6 +27,14 @@ describe('Getting prefixes', () => {
   it('returns an unsorted array of words when sort is set to false', () => {
     expect(input.getPrefix('aal', false)).toEqual(['aalii', 'aal']);
   });
+
+  it('returns an array of words searched by BFS when sorted and limit are used', () => {
+    expect(input.getPrefix('aa', true, 3)).toEqual(['aah', 'aahs', 'aardvark']);
+  });
+
+  it('returns an array of words searched by BFS with limit when limit used', () => {
+    expect(input.getPrefix('aa', false, 3)).toEqual(['aah', 'aahs', 'aardvark']);
+  });
 });
 
 test('Counting prefixes', () => {

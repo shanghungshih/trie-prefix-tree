@@ -87,7 +87,7 @@ export default function(input, caseSensitive = false) {
     * Get a list of all words in the trie with the given prefix
     * @returns Array
     */
-    getPrefix(strPrefix, sorted = true) {
+    getPrefix(strPrefix, sorted = true, limit = null) {
       if(typeof strPrefix !== 'string') {
         throw(`Expected string prefix, received ${typeof strPrefix}`);
       }
@@ -104,7 +104,7 @@ export default function(input, caseSensitive = false) {
         checkPrefix(trie, strPrefix, caseSensitive).prefixNode
         : trie;
 
-      return recursePrefix(prefixNode, strPrefix, sorted);
+      return recursePrefix(prefixNode, strPrefix, sorted, limit);
     },
 
     /**

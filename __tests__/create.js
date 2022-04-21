@@ -31,8 +31,8 @@ describe('Creating the Trie', () => {
 
   it('returns a Trie object structure with case-sensitive', () => {
     const input = ['Dog'];
-    const data = create(input, true);
-    const expected = {
+    const data = utils.stringify(create(input, true), 0);
+    const expected = JSON.stringify({
       D: {
         o: {
           g: {
@@ -40,7 +40,7 @@ describe('Creating the Trie', () => {
           }
         }
       }
-    };
+    });
 
     expect(data).toEqual(expected);
   });
